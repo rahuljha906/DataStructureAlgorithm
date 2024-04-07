@@ -27,16 +27,15 @@ s contains English letters (upper-case and lower-case), digits, and spaces ' '.
 There is at least one word in s.
  Follow-up: If the string data type is mutable in your language, can you solve it in-place with O(1) extra space?
  */
-public class ReverseWord {
+public class ReverseWords {
     public static void main(String[] args) {
-        String str = "hello word";
-        reverseWord(str);
-        System.out.println(reverseWord(str));
+        String str = "a good   example";
+        System.out.println(reverseWords(str));
     }
 
-    static String reverseWord(String str) {
+    static String reverseWords(String str) {
         String a[] = str.split(" ");
-        List<String> stList = Arrays.stream(a).collect(Collectors.toList());
+        List<String> stList = Arrays.stream(a).filter(i->!i.isEmpty()).collect(Collectors.toList());
         Collections.reverse(stList);
         return stList.stream().collect(Collectors.joining(" "));
     }
